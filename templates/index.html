@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Codebase Explainer</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<header>
+  <h1>🔎 Codebase <span class="accent">Explainer</span></h1>
+  <p class="sub">Paste a GitHub URL to explain a repo, or describe a concept
+    (e.g. <em>"a clean example of a rate limiter"</em>) to have one found for you.</p>
+</header>
+
+<main>
+  <div class="backend-row">
+    <label for="backend">Run on:</label>
+    <select id="backend"></select>
+    <span id="backend-note" class="backend-note"></span>
+  </div>
+
+  <form id="explain-form" class="bar">
+    <input id="query" type="text" autocomplete="off"
+      placeholder="github.com/owner/repo  —or—  show me how OAuth refresh tokens work" />
+    <button type="submit" id="go">Explain</button>
+  </form>
+
+  <div id="status" class="status hidden"></div>
+  <div id="error" class="error hidden"></div>
+
+  <section id="results" class="hidden">
+    <div id="repo-banner" class="banner"></div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>Diagram</h2>
+        <div id="diagram" class="diagram"></div>
+        <details id="mermaid-src-wrap">
+          <summary>Mermaid source</summary>
+          <pre id="mermaid-src"></pre>
+        </details>
+      </div>
+      <div class="panel">
+        <h2>Walkthrough</h2>
+        <div id="walkthrough" class="walkthrough"></div>
+        <details>
+          <summary id="files-summary">Files read</summary>
+          <ul id="files-read"></ul>
+        </details>
+      </div>
+    </div>
+
+    <form id="followup-form" class="bar followup">
+      <input id="followup" type="text" autocomplete="off"
+        placeholder="Follow-up: explain the auth flow / how does caching work?" />
+      <button type="submit">Ask</button>
+    </form>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

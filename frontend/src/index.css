@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Claude-style warm cream theme with mint accent rgb(66,245,161) */
+@theme {
+  --color-cream: #f5f4ee;
+  --color-surface: #fbfaf6;
+  --color-surface2: #f0eee5;
+  --color-edge: #e3e0d6;
+  --color-edge-strong: #d6d2c4;
+  --color-ink: #2b2a26;
+  --color-muted: #76746a;
+  --color-accent: rgb(66, 245, 161);
+  --color-accent-deep: #15a368;
+  --color-accent-ink: #0b5f3c;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, ui-sans-serif, Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Markdown ("prose") styling for explanations and answers */
+.md :where(h1, h2, h3) {
+  font-weight: 600;
+  margin: 1em 0 0.4em;
+  color: var(--color-ink);
+}
+.md h1 { font-size: 1.25rem; }
+.md h2 { font-size: 1.1rem; }
+.md h3 { font-size: 1rem; }
+.md p { margin: 0.6em 0; }
+.md ul,
+.md ol { margin: 0.6em 0; padding-left: 1.3em; }
+.md li { margin: 0.2em 0; }
+.md ul { list-style: disc; }
+.md ol { list-style: decimal; }
+.md a { color: var(--color-accent-ink); text-decoration: underline; }
+.md code {
+  background: var(--color-surface2);
+  color: var(--color-accent-ink);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.85em;
+}
+.md pre {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-edge);
+  border-radius: 10px;
+  padding: 12px;
+  overflow: auto;
+}
+.md pre code { background: transparent; padding: 0; }
+.md strong { font-weight: 600; }
+
+/* Mermaid SVG scaling */
+.mermaid-host svg { max-width: 100%; height: auto; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-edge-strong); border-radius: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
